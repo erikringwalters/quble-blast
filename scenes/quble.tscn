@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfbkff3ypqwtn"]
+
+[ext_resource type="PackedScene" uid="uid://buuj121w37q77" path="res://assets/glb/Quble.glb" id="1_hlakk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hlakk"]
+size = Vector3(16, 16, 16)
+
+[node name="Quble" type="RigidBody3D"]
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_hlakk")
+
+[node name="QubleMesh" parent="." instance=ExtResource("1_hlakk")]
