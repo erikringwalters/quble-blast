@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://c1wo7eult10y4"]
+[gd_scene load_steps=4 format=3 uid="uid://c1wo7eult10y4"]
+
+[ext_resource type="Script" uid="uid://d1khbcv20qx4v" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://bfbkff3ypqwtn" path="res://scenes/quble.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://kwsphao4l2no" path="res://scenes/boundary_box.tscn" id="3_sugp2"]
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_o5qli")
+quble_scene = ExtResource("2_0wfyh")
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 2, 7)
+
+[node name="DirectionalLightTop" type="DirectionalLight3D" parent="CameraPivot"]
+transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.7071068, 0.7071068, -0.7071068, -0.5, 0.5, 0, 5, 0)
+
+[node name="DirectionalLightBottom" type="DirectionalLight3D" parent="CameraPivot"]
+transform = Transform3D(0.49999997, -0.61237246, -0.61237246, -3.0908623e-08, 0.70710677, -0.7071069, 0.8660254, 0.3535534, 0.35355332, 0, -5, 0)
+light_energy = 0.25
+
+[node name="BoundaryBox" parent="." instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0)

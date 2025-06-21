@@ -1,13 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfbkff3ypqwtn"]
+[gd_scene load_steps=4 format=3 uid="uid://bfbkff3ypqwtn"]
 
 [ext_resource type="PackedScene" uid="uid://buuj121w37q77" path="res://assets/glb/Quble.glb" id="1_hlakk"]
+[ext_resource type="PackedScene" uid="uid://bxsvrnfmbus53" path="res://scenes/edge_area.tscn" id="2_7a6y5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hlakk"]
 size = Vector3(16, 16, 16)
 
 [node name="Quble" type="RigidBody3D"]
+freeze = true
 
 [node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 shape = SubResource("BoxShape3D_hlakk")
 
 [node name="QubleMesh" parent="." instance=ExtResource("1_hlakk")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Area1" parent="." instance=ExtResource("2_7a6y5")]
+
+[node name="Area2" parent="." instance=ExtResource("2_7a6y5")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Area3" parent="." instance=ExtResource("2_7a6y5")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Area4" parent="." instance=ExtResource("2_7a6y5")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0, 0, 0)
+
+[node name="Area5" parent="." instance=ExtResource("2_7a6y5")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Area6" parent="." instance=ExtResource("2_7a6y5")]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
