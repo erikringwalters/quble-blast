@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bfbkff3ypqwtn"]
 
 [ext_resource type="PackedScene" uid="uid://buuj121w37q77" path="res://assets/glb/Quble.glb" id="1_hlakk"]
-[ext_resource type="PackedScene" uid="uid://bxsvrnfmbus53" path="res://scenes/edge_area.tscn" id="2_7a6y5"]
+[ext_resource type="PackedScene" uid="uid://bxsvrnfmbus53" path="res://scenes/face_area.tscn" id="2_7a6y5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hlakk"]
 size = Vector3(16, 16, 16)

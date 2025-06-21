@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bxsvrnfmbus53"]
 
-[ext_resource type="Script" uid="uid://c0l6y26tp1fic" path="res://scripts/edge_area.gd" id="1_01bpb"]
+[ext_resource type="Script" uid="uid://bgqa5qkyc6au0" path="res://scripts/face_area.gd" id="1_01bpb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aqh6m"]
 size = Vector3(0.1, 1.4, 1.4)
@@ -16,9 +16,9 @@ resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_aqh6m")
 top_radius = 0.6
 bottom_radius = 0.6
-height = 0.025
+height = 0.05
 
-[node name="EdgeArea" type="Area3D"]
+[node name="FaceArea" type="Area3D"]
 script = ExtResource("1_01bpb")
 
 [node name="Collision" type="CollisionShape3D" parent="."]
@@ -26,5 +26,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 0, 0)
 shape = SubResource("BoxShape3D_aqh6m")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.8, 0, 0)
+visible = false
 mesh = SubResource("CylinderMesh_aqh6m")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
