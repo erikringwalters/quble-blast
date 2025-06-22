@@ -13,7 +13,8 @@ func handle_input(_touch_position: Vector3) -> void:
 	pass
 
 func _on_area_entered(area: Area3D) -> void:
-	print("area entered by: ", area)
+	# print("area entered by: ", area)
+	pass
 
 func _on_mouse_entered() -> void:
 	mesh.visible = true

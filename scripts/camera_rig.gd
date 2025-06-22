@@ -21,11 +21,13 @@ var camera_mouse_direction := Vector2.ZERO
 var camera_stick_rotation := Vector2.ZERO
 var camera_stick_input := Vector2.ZERO
 var is_camera_motion: bool = false
+var camera_orbit_active: bool = false
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("left_click"):
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		pass
+	if event.is_action_pressed("right_click") || event.is_action_pressed("middle_click"):
+		camera_orbit_active = true
+	if event.is_action_released("right_click") || event.is_action_released("middle_click"):
+		camera_orbit_active = false
 	if event.is_action_pressed("escape"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		pass
@@ -39,11 +41,7 @@ func _input(event: InputEvent) -> void:
 	# 	spring_arm_length = handle_big_zoom_out(spring_arm_length)
 
 func _unhandled_input(event: InputEvent) -> void:
-	is_camera_motion = (
-		event is InputEventMouseMotion and
-		Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED
-	)
-	if is_camera_motion:
+	if event is InputEventMouseMotion && camera_orbit_active:
 		camera_mouse_direction = event.screen_relative * camera_mouse_sensitivity * mouse_mult
 
 func _process(delta: float) -> void:
@@ -63,7 +61,6 @@ func move_camera(delta: float) -> void:
 	spring_arm.rotation.x -= camera_mouse_direction.y + (camera_stick_rotation.y * delta)
 	spring_arm.rotation.x = clamp(spring_arm.rotation.x, max_angle_down, max_angle_up)
 	spring_arm.rotation.y -= camera_mouse_direction.x + (camera_stick_rotation.x * delta)
-	# camera_pointer_horizontal.global_rotation_degrees = Vector3(-90.0, camera_pivot.global_rotation_degrees.y, 0.0)
 	camera_mouse_direction = Vector2.ZERO
 
 	spring_arm.spring_length = lerp(spring_arm.spring_length, spring_arm_length, zoom_speed)
