@@ -8,12 +8,12 @@ var quble_axis_count: int = 5
 
 func _ready() -> void:
 	spawn_qubles(quble_axis_count)
+	pass
 
 func spawn_qubles(count: int) -> void:
 	for i in count:
 		for j in count:
 			for k in count:
-				print(i, j, k)
 				var quble: RigidBody3D = quble_scene.instantiate()
 				add_child(quble)
-				quble.position = Vector3(i * quble_distance_offset - (((quble_width) * count) * 0.5), j * quble_distance_offset, k * quble_distance_offset)
+				quble.position = Vector3(i * quble_distance_offset - quble_width * count * 0.5, j * quble_distance_offset, k * quble_distance_offset - quble_width * count * 0.5)
