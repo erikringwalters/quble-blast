@@ -8,7 +8,7 @@ extends Node3D
 @export var med_spring_arm_length: float = 12.0
 @export var max_spring_arm_length: float = 20.0
 @export var spring_arm_length: float = max_spring_arm_length
-@export var zoom_speed: float = 0.05
+@export var zoom_speed: float = 0.1
 @export var max_angle_up: float = PI / 2.0
 @export var max_angle_down: float = -PI / 2.5
 
