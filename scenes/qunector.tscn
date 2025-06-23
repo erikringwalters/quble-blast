@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://m1nwxtrwlsqh"]
+
+[ext_resource type="PackedScene" uid="uid://cvx2j1evnymqx" path="res://assets/glb/Qunector.glb" id="1_mjvlr"]
+
+[node name="Qunector" type="Node3D"]
+
+[node name="QunectorMesh" parent="." instance=ExtResource("1_mjvlr")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
