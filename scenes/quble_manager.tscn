@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs2vqv2ckiq"]
+
+[ext_resource type="Script" uid="uid://b53xl5r6hdyx5" path="res://scripts/quble_manager.gd" id="1_tm5hk"]
+[ext_resource type="PackedScene" uid="uid://bfbkff3ypqwtn" path="res://scenes/quble.tscn" id="2_8vq7e"]
+
+[node name="QubleManager" type="Node3D"]
+script = ExtResource("1_tm5hk")
+quble_scene = ExtResource("2_8vq7e")
